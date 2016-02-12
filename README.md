@@ -21,8 +21,9 @@ based on our web application image and one haproxy container.
 
 ### Sample Code
 ```
-su - hdfs
-hadoop jar /usr/lib/hadoop-0.20-mapreduce/hadoop-examples.jar randomwriter out
+              |WebNode1|
+User-->HAProxy|WebNode2|MongoDB-Node1
+              |WebNode3|
 ```
 
 

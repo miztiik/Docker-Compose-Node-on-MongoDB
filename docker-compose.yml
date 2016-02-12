@@ -12,7 +12,7 @@
 ##################################################################################
 
 # Specifying the ports manually	HOST:CONTAINER
-webNode1:
+webnode1:
   build: .
   container_name: webNode1
   expose:
@@ -21,7 +21,7 @@ webNode1:
     - "./appSrc:/src/app"
   command: python manage.py migrate
 
-webNode2:
+webnode2:
   build: .
   container_name: webNode2
   expose:
@@ -29,7 +29,7 @@ webNode2:
   volumes:
     - "./appSrc:/src/app"
 
-webNode3:
+webnode3:
   build: .
   container_name: webNode3
   expose:
@@ -37,7 +37,7 @@ webNode3:
   volumes:
     - "./appSrc:/src/app"
 
-dbNode1:  
+dbnode1:  
   image: mongo:latest
   container_name: dbNode1
   ports:
@@ -50,9 +50,9 @@ haproxyNode1:
   volumes:
    - "./haproxy:/usr/local/etc/haproxy"
   links:
-   - webNode1
-   - webNode2
-   - webNode3
+   - webnode1
+   - webnode2
+   - webnode3
   ports:
    - "80:8095"
    - "70:70"

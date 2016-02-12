@@ -21,9 +21,9 @@ based on our web application image and one haproxy container.
 
 ### Sample Code
 ```
-              |WebNode1|
-User-->HAProxy|WebNode2|MongoDB-Node1
-              |WebNode3|
+                       |WebNode1|
+User <--> HAProxy <--> |WebNode2| <--> MongoDB-Node1
+                       |WebNode3|
 ```
 
 

@@ -42,13 +42,12 @@ dbNode1:
   ports:
     - "27017:27017"
   command: --noprealloc --smallfiles
-  
 
 haproxyNode1:
   image: haproxy
   container_name: haproxyNode1
   volumes:
-   - haproxy:/haproxy-override
+   - /haproxy:/haproxy
   links:
    - webNode1
    - webNode2

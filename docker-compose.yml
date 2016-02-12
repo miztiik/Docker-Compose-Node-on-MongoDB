@@ -15,24 +15,24 @@
 webNode1:
   image: node:latest
   container_name: webNode1
-  ports:
-    - "80:8091"
+  expose:
+    - 80
   volumes:
     - "./appSrc:/src/app"
 
 webNode2:
   image: node:latest
   container_name: webNode2
-  ports:
-    - "80:8092"
+  expose:
+    - 80
   volumes:
     - "./appSrc:/src/app"
 
 webNode3:
   image: node:latest
   container_name: webNode3
-  ports:
-    - "80:8093"
+  expose:
+    - 80
   volumes:
     - "./appSrc:/src/app"
 
@@ -54,9 +54,9 @@ haproxyNode1:
    - webNode2
    - webNode3
   ports:
-   - "80:8094"
+   - "80:8095"
    - "70:70"
 
   expose:
-   - "8094"
+   - "8095"
    - "70"

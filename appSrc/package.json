@@ -1,0 +1,13 @@
+{
+  "name": "webApp",
+  "version": "1.0.0",
+  "description": "Node.js on MongoDB load balanced with HAProxy",
+  "author": "Mystique",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}

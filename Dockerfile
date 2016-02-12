@@ -9,15 +9,18 @@
 ## Ref [2]      :   http://blog.hypriot.com/post/docker-compose-nodejs-haproxy/
 ##
 ##################################################################################
-FROM alpine
+FROM node
 MAINTAINER mystique
 
-# Add the tar file of the web site 
-RUN apk update && apk add nodejs && rm -rf /var/cache/apk/* && mkdir /data
+# Create app directory
+RUN mkdir -p /usr/src/app
+ADD appSrc /usr/src/app
+WORKDIR /usr/src/app
 
-WORKDIR /data
+# install the dependencies from the package.json file
+RUN npm install
 
+# make port 80 available outside of the image
 EXPOSE 80
 
-ENTRYPOINT [ "sh" ]
-CMD [""]
+CMD [ "node", "/usr/src/app/server.js"]

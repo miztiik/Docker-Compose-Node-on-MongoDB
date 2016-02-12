@@ -13,15 +13,16 @@
 
 # Specifying the ports manually	HOST:CONTAINER
 webNode1:
-  image: node:latest
+  build: .
   container_name: webNode1
   expose:
     - 80
   volumes:
     - "./appSrc:/src/app"
+  command: python manage.py migrate
 
 webNode2:
-  image: node:latest
+  build: .
   container_name: webNode2
   expose:
     - 80
@@ -29,7 +30,7 @@ webNode2:
     - "./appSrc:/src/app"
 
 webNode3:
-  image: node:latest
+  build: .
   container_name: webNode3
   expose:
     - 80
@@ -47,7 +48,7 @@ haproxyNode1:
   image: haproxy
   container_name: haproxyNode1
   volumes:
-   - /haproxy:/haproxy
+   - "./haproxy:/usr/local/etc/haproxy"
   links:
    - webNode1
    - webNode2

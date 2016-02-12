@@ -14,8 +14,8 @@ This is a simple setup with 3 Nodes and one MongoDB as backend run along with We
 * OMDB API
 
 ## Composing our Services
-To get our five container configuration set up we first need to create a _docker-compose.yml_ file. We will need three containers webNode1, webNode2 and webNode3
-based on our web application image and one haproxy container.
+To get our five container configuration set up we first need to create a `docker-compose.yml` file. We will need three containers webNode1, webNode2 and webNode3
+based on our web application image and one haproxy container. The webservers will be running on port `8081` and the haproxy admin port will be `70`. Feel free to change them in `docker-compose.yml` and `Dockerfile` to which ever ports are convinient for you.
 
 
 

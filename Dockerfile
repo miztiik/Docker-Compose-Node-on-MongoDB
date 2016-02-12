@@ -21,6 +21,6 @@ WORKDIR /usr/src/app
 RUN npm install
 
 # make port 80 available outside of the image
-EXPOSE 80
+EXPOSE 8081
 
 CMD [ "node", "/usr/src/app/server.js"]

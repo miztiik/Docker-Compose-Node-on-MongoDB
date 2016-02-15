@@ -1,5 +1,6 @@
 {
   "name": "webApp",
+  "private": true,
   "version": "1.0.0",
   "description": "Node.js on MongoDB load balanced with HAProxy",
   "author": "Mystique",
@@ -8,8 +9,8 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "body-parser": "^1.8.1",
     "express": "^4.13.3",
-	"request":"*"
-  }
+    "body-parser": "^1.8.1",
+    "request":"*",
+    "mongodb":"*"
 }

@@ -20,7 +20,7 @@ WORKDIR /usr/src/app
 # install the dependencies from the package.json file
 RUN npm install
 
-# make port 80 available outside of the image
-EXPOSE 8081
+# make port 8089 available outside of the image
+EXPOSE 8089
 
 CMD [ "node", "/usr/src/app/server.js"]

@@ -12,52 +12,50 @@
 ##################################################################################
 
 # Specifying the ports manually	HOST:CONTAINER
-services:
-  webnode1:
-    build: .
-    container_name: webNode1
-    expose:
-      - 8081
-    volumes:
-      - "./appSrc:/usr/src/app"
-  
-  webnode2:
-    build: .
-    container_name: webNode2
-    expose:
-      - 8081
-    volumes:
-      - "./appSrc:/usr/src/app"
-  
-  webnode3:
-    build: .
-    container_name: webNode3
-    expose:
-      - 8081
-    volumes:
-      - "./appSrc:/usr/src/app"
-  
-  dbnode1:  
-    image: mongo:latest
-    container_name: dbNode1
-    restart: always
-    ports:
-      - "27017:27017"
-    command: --noprealloc --smallfiles
-  
-  haproxyNode1:
-    image: haproxy
-    container_name: haproxyNode1
-    volumes:
-     - "./haproxy:/usr/local/etc/haproxy"
-    links:
-     - webnode1
-     - webnode2
-     - webnode3
-    ports:
-     - "8081:8081"
-     - "70:70"
-     
-    expose:
-     - "8081"
-     - "70"
+webnode1:
+  build: .
+  container_name: webNode1
+  expose:
+    - 8081
+  volumes:
+    - "./appSrc:/usr/src/app"
+webnode2:
+  build: .
+  container_name: webNode2
+  expose:
+    - 8081
+  volumes:
+    - "./appSrc:/usr/src/app"
+
+webnode3:
+  build: .
+  container_name: webNode3
+  expose:
+    - 8081
+  volumes:
+    - "./appSrc:/usr/src/app"
+
+dbnode1:  
+  image: mongo:latest
+  container_name: dbNode1
+  restart: always
+  ports:
+    - "27017:27017"
+  command: --noprealloc --smallfiles
+
+haproxyNode1:
+  image: haproxy
+  container_name: haproxyNode1
+  volumes:
+   - "./haproxy:/usr/local/etc/haproxy"
+  links:
+   - webnode1
+   - webnode2
+   - webnode3
+  ports:
+   - "8081:8081"
+   - "70:70"
+   
+  expose:
+   - "8081"
+   - "70"

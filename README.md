@@ -25,9 +25,10 @@ The node servers are configured to run on port `8081`, The HA Proxy comes with a
 
 ## How to run
 From your docker terminal, jump to the directory where you have the copied all the files from this repo and run,
+
 `docker-compose up -d`
 
-### Sample Code
+### How does it all look at the end?
 ```
                        |WebNode1|
 User <--> HAProxy <--> |WebNode2| <--> MongoDB-Node1
@@ -36,19 +37,27 @@ User <--> HAProxy <--> |WebNode2| <--> MongoDB-Node1
 
 ### Performance testing using Apache Benchmark
 If you are using linux (CentOS or Fedora or RHEL) you can install it by running
+
 `yum -y install httpd-tools`
+
 Create a post data file with data in the below format
+
 `<form_field1_name>=<form_field1_value>&<form_field2_name>=<form_field2_value>`
+
 `mediaTitle=titanic&mediaYear=1997`
+
 Basically what we are doing here, The number`-n` of queries is being set `10000`. The concurrency `-c` is being set to `30`. The rest of the flags are mandatory if you are using `ab` to post data to the url and can be safely ignored if you are not using. Finally provide the url to which you are posting. If you want to know more, Apache Benchmark has very good documentation [here](https://httpd.apache.org/docs/2.2/programs/ab.html).
+
 `ab -n 10000 -c 30 -p post_data_filepath -v 4 -T 'application/x-www-form-urlencoded' <NODE.JS_POST_URL>`
 
 #### Performance testing using cURL
 Incase installing another tool like `ab` is too much work, you can do something like this, (_Dont forget to fill in the fields <..>_)
+```
 for i in {1..10000}
 do
 curl -X POST --data "mediaTitle=<movie_title_of_choice>" --data "mediaYear=<Year_of_release_of_movie>"  <NODE.JS_POST_URL> > /dev/null;
 done
+```
 
 ##### To Do
 - [x] Setup [Apache Bench](http://httpd.apache.org/docs/2.2/programs/ab.html) along with Docker Compose

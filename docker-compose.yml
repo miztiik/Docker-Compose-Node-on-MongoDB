@@ -1,7 +1,7 @@
 ##################################################################################
 ## 
-## VERSION      :   0.0.1
-## DATE         :   12Feb2016
+## VERSION      :   0.0.2
+## DATE         :   17Feb2016
 ##
 ## DESCRIPTION  :   "How to use Docker Compose to run complex multi container apps - Node on MongoDB"
 ##
@@ -18,14 +18,15 @@ webnode1:
   expose:
     - 8081
   volumes:
-    - "./appSrc:/usr/src/app"
+    - "/media/sf_dockerRepos:/media/sf_dockerRepos"
+
 webnode2:
   build: .
   container_name: webNode2
   expose:
     - 8081
   volumes:
-    - "./appSrc:/usr/src/app"
+    - "/media/sf_dockerRepos:/media/sf_dockerRepos"
 
 webnode3:
   build: .
@@ -33,15 +34,7 @@ webnode3:
   expose:
     - 8081
   volumes:
-    - "./appSrc:/usr/src/app"
-
-dbnode1:  
-  image: mongo:latest
-  container_name: dbNode1
-  restart: always
-  ports:
-    - "27017:27017"
-  command: --noprealloc --smallfiles
+    - "/media/sf_dockerRepos:/media/sf_dockerRepos"
 
 haproxyNode1:
   image: haproxy

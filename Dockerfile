@@ -18,12 +18,9 @@ ADD appSrc/ /usr/src/app
 WORKDIR /usr/src/app
 
 # install the dependencies from the package.json file
-RUN npm install express \
-    npm install body-parser \
-    npm install request \
-    npm install mongodb
-	
+RUN npm install
+
 # make port 8081 available outside of the image
 EXPOSE 8081
 
-CMD [ "node", "/usr/src/app/server.js"]
+CMD [ "node", "/usr/src/app/server.js" ]

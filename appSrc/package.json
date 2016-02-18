@@ -2,15 +2,26 @@
   "name": "webApp",
   "private": true,
   "version": "1.0.0",
-  "description": "Node.js on MongoDB load balanced with HAProxy",
+  "description": "Express on MongoDB load balanced with HAProxy, MongoDB provided by Mongo Labs",
   "author": "Mystique",
+  "license": "MIT",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/miztiik/Docker-Compose-Node-on-MongoDB.git"
+  },
+   "keywords": [
+    "MEAN",
+    "Express"
+  ],
   "dependencies": {
-    "express": "^4.13.3",
-    "body-parser": "^1.8.1",
-    "request":"*",
-    "mongodb":"*"
+    "express": "^4.12.0",
+    "body-parser": "^1.13.3",
+    "request": "*",
+    "mongodb": "^2.0.43"	
+  }
 }
+

@@ -1,0 +1,72 @@
+<html>
+	<head>
+		<style>
+			#rcorners 
+			{
+				border-radius: 25px;
+				border: 2px solid #ccccff;
+				padding: 20px;
+			}
+			#rbutton 
+			{
+				background-color: #008CBA;
+				border: 1px;border-radius: 8px;
+				color: white;
+				padding: 12px 12px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 16px;
+			}
+			#rtextbox 
+			{
+				width: 300px;
+				height: 40px;
+				padding: 1px;
+				font-size: 20pt
+			}
+			#rtextbox:focus
+			{
+				outline:#b3b3ff;
+				border-color:#b3b3ff;
+				box-shadow:0 0 2px #b3b3ff;
+			}
+			#underline
+			{
+				color: #f2f2f2;
+				border-bottom: 1px solid #f2f2f2;
+			}
+		</style>
+	</head>	
+<body>
+	
+	<br /><br /><br /><br />
+	<form id="rcorners" action="/" method="post">
+		<b style="font-size: 18pt">Media Title:</b>
+		<input id="rtextbox" type="text" name="mediaTitle" placeholder="..." />
+		&nbsp;&nbsp;
+		<b style="font-size: 18pt">Year:</b>
+		<input id="rtextbox" type="text" name="mediaYear" maxlength="4" placeholder="..." />
+		&nbsp;&nbsp;
+		<button id="rbutton" type="submit">Search for media</button>
+    </form>
+
+    <script type="text/JavaScript">
+        var http = new XMLHttpRequest();
+        var params = "text=stuff";
+        http.open("POST", "http://192.168.56.85:8089", true);
+
+        http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        http.onreadystatechange = function() {
+            if (http.readyState == 4 && http.status == 200) {
+                //alert(http.responseText);
+            }
+            else {
+                console.log('readyState=' + http.readyState + ', status: ' + http.status);
+            }
+        }
+        http.send(params);
+    </script>
+
+</body>
+</html>

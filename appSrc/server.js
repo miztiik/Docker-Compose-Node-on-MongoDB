@@ -17,8 +17,7 @@ var ObjectId = require('mongodb').ObjectID;
 
 // Set the database name here
 var dbName = 'myMoovyDB-';
-// var mongodbURL = 'mongodb://db1:27017/'+dbName;
-var mongodbURL = 'mongodb://testadmin:testadmin@ds059375.mongolab.com:59375/moovydb-test';
+var mongodbURL = 'mongodb://testadmin:testadmin@ds059375.mlab.com:59375/moovydb-test';
 var mongodbCollections ='moovy';
 
 // App
